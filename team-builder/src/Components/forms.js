@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
 
-function TheForm({setMember}) {
+function TheForm({addNewMember}) {
   const [user, setUser] = useState({ Name: "", Email: "", Role: ""});
 
   const handleChange = event => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
 
+
   const handleSubmit = event => {
+    // const memberList = [];
+    // console.log("this is event on handleSubmit", event);
     event.preventDefault();
-    setMember(user.Name);
+    // memberList.push(user.Name);
+    addNewMember(user);
+    // console.log("this is memberList", memberList);
     setUser({ Name: "", Email: "", Role: ""});
-    // console.log(user.Name);
-    // console.log(user.Email);
-    // console.log(user.Role);
   };
 
   return (
